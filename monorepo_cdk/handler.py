@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     msg = event["Records"][0]["body"]
 
     tn = os.getenv('infra_ddb_table')
-    timestamp = datetime.datetime.today().strftime('%d-%b-%Y-%M-%S')
+    timestamp = datetime.datetime.today().strftime('%d-%b-%Y:%H-%M-%S')
 
     print(f'lambda_handler: invoked by {event_source}')
     print(f'lambda_handler: event id = {event_id}  body = {msg}')
