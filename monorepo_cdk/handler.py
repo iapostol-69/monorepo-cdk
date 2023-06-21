@@ -16,6 +16,7 @@ def lambda_handler(event, context):
     print(f'lambda_handler: invoked by {event_source}')
     print(f'lambda_handler: event id = {event_id}  body = {msg}')
 
+
     # store the incoming event in dynamo
     ddb = boto3.client('dynamodb')
     response = ddb.put_item(TableName=tn, Item={'id': {'S': event_id}, 'msg': {'S': msg}, 'timestamp': {'S': timestamp}})
